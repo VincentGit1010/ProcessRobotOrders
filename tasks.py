@@ -106,3 +106,10 @@ def archive_receipts():
     """Zips all the receipts"""
     archive = Archive()
     archive.archive_folder_with_zip("output/receipts", "output/receipts.zip")
+    cleanup_receipts()
+
+def cleanup_receipts():
+    """Removes the receipts"""
+    files = os.listdir("output/receipts")
+    for file in files:
+        os.remove("output/receipts/" + file)    
